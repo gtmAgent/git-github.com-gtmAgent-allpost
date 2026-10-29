@@ -1,0 +1,90 @@
+{
+  "version": 2,
+  "uuid": "386e5213-6004-4bf8-943f-ff921eaf5e15",
+  "name": "Instagram私信",
+  "description": "打开目标用户主页 → 点用户名旁三点菜单 → 点 Send message → 输入文案（可选附图）→ 发送",
+  "deviceType": "browser",
+  "socialCategoryId": 2,
+  "deviceId": 0,
+  "createdAt": 1792393618,
+  "updatedAt": 1792464040,
+  "routes": [
+    {
+      "index": 1,
+      "routeId": "11ee50f0-e351-4d2a-8794-421f6fbcf936",
+      "name": "Instagram私信",
+      "description": "从用户主页经三点菜单进入私信并发送文案/可选图片",
+      "entryUrl": "https://www.instagram.com/kent26128/",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "b607768d-1cad-4ad2-9417-68bdbebbdca6",
+          "title": "点击用户名旁三点菜单",
+          "description": "在对方主页点击用户名右侧的「⋯」更多选项按钮，打开操作菜单",
+          "capturedAt": 1792399166,
+          "screenshot": "routes/001/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/001/annotated.png",
+          "markup": "routes/001/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/kent26128/",
+              "title": "Instagram",
+              "pagePath": "routes/001/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "07cb0d2b-ce45-4001-bcab-cc8ed731b14e",
+          "title": "点击发送消息",
+          "description": "在弹出菜单中点击 Send message / 发消息，进入私信会话",
+          "capturedAt": 1792399188,
+          "screenshot": "routes/001/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/002/annotated.png",
+          "markup": "routes/001/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/kent26128/",
+              "title": "Instagram",
+              "pagePath": "routes/001/steps/002/page.html"
+            }
+          }
+        },
+        {
+          "index": 3,
+          "stepId": "cd2c82e6-91ce-45cc-ad43-c24989cb1a3e",
+          "title": "输入发送内容",
+          "description": "在私信输入框输入文案；可选附加图片（可不选）",
+          "capturedAt": 1792399226,
+          "screenshot": "routes/001/steps/003/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/003/annotated.png",
+          "markup": "routes/001/steps/003/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/direct/t/18135462571632906",
+              "title": "Instagram • Messages",
+              "pagePath": "routes/001/steps/003/page.html"
+            }
+          }
+        },
+        {
+          "index": 4,
+          "stepId": "58abb498-ef58-4ab8-b2a5-2c922a64062b",
+          "title": "点击发送",
+          "description": "点击发送按钮，完成私信发送",
+          "capturedAt": 1792399415,
+          "screenshot": "routes/001/steps/004/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/004/annotated.png",
+          "markup": "routes/001/steps/004/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/direct/t/18135462571632906",
+              "title": "Instagram • Messages",
+              "pagePath": "routes/001/steps/004/page.html"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

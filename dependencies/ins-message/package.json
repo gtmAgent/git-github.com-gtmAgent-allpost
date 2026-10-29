@@ -1,0 +1,645 @@
+{
+  "name": "ins-message",
+  "version": "1.2.1",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "Instagram私信",
+    "de_DE": "Instagram私信",
+    "es_ES": "Instagram私信",
+    "fr_FR": "Instagram私信",
+    "id_ID": "Instagram私信",
+    "ja_JP": "Instagram私信",
+    "ko_KR": "Instagram私信",
+    "ms_MY": "Instagram私信",
+    "pt_BR": "Instagram私信",
+    "ru_RU": "Instagram私信",
+    "th_TH": "Instagram私信",
+    "vi_VN": "Instagram私信",
+    "zh_CN": "Instagram私信",
+    "zh_TW": "Instagram私信"
+  },
+  "description": {
+    "en_US": "Send an Instagram direct message to a profile (optional image)",
+    "zh_CN": "向 Instagram 用户主页发送私信（可选附图）",
+    "zh_TW": "向 Instagram 使用者主頁發送私訊（可選附圖）",
+    "ja_JP": "Instagram プロフィールにダイレクトメッセージを送信（画像任意）",
+    "ko_KR": "Instagram 프로필에 다이렉트 메시지 전송(이미지 선택)",
+    "th_TH": "ส่งข้อความ Instagram โดยตรงไปยังโปรไฟล์ (รูปภาพเสริม)",
+    "id_ID": "Kirim pesan langsung Instagram ke profil (gambar opsional)",
+    "ms_MY": "Hantar mesej terus Instagram ke profil (imej pilihan)",
+    "vi_VN": "Gửi tin nhắn Instagram tới trang cá nhân (ảnh tùy chọn)",
+    "de_DE": "Instagram-Direktnachricht an ein Profil senden (Bild optional)",
+    "es_ES": "Enviar un mensaje directo de Instagram a un perfil (imagen opcional)",
+    "pt_BR": "Enviar mensagem direta do Instagram para um perfil (imagem opcional)",
+    "fr_FR": "Envoyer un message Instagram à un profil (image facultative)",
+    "ru_RU": "Отправить личное сообщение Instagram в профиль (изображение по желанию)"
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-browser-sdk": "file:../xport_browser_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportAutomation": {
+    "taskGroupConfig": [
+      {
+        "title": {
+          "en_US": "Targets, content & devices",
+          "zh_CN": "目标、内容与设备",
+          "zh_TW": "目標、內容與裝置",
+          "ja_JP": "対象・内容・デバイス",
+          "ko_KR": "대상, 내용 및 기기",
+          "th_TH": "เป้าหมาย เนื้อหา และอุปกรณ์",
+          "id_ID": "Target, konten & perangkat",
+          "ms_MY": "Sasaran, kandungan & peranti",
+          "vi_VN": "Mục tiêu, nội dung & thiết bị",
+          "de_DE": "Ziele, Inhalte & Geräte",
+          "es_ES": "Destinos, contenido y dispositivos",
+          "pt_BR": "Alvos, conteúdo e dispositivos",
+          "fr_FR": "Cibles, contenu et appareils",
+          "ru_RU": "Цели, контент и устройства"
+        },
+        "fields": [
+          {
+            "key": "hosts",
+            "type": "text",
+            "label": {
+              "en_US": "Profile URLs",
+              "zh_CN": "用户主页地址",
+              "zh_TW": "使用者主頁網址",
+              "ja_JP": "ユーザーのプロフィール URL",
+              "ko_KR": "사용자 프로필 URL",
+              "th_TH": "URL โปรไฟล์ผู้ใช้",
+              "id_ID": "URL profil pengguna",
+              "ms_MY": "URL profil pengguna",
+              "vi_VN": "URL trang cá nhân",
+              "de_DE": "Profil-URLs",
+              "es_ES": "URL de perfiles",
+              "pt_BR": "URLs de perfil",
+              "fr_FR": "URL de profils",
+              "ru_RU": "URL профилей"
+            },
+            "hint": {
+              "en_US": "One profile URL per line; tasks round-robin across browsers",
+              "zh_CN": "每行一个主页；任务按顺序轮询分配到各浏览器",
+              "zh_TW": "每行一個主頁；任務依序輪詢分配到各瀏覽器",
+              "ja_JP": "1行に1 URL。タスクはブラウザへラウンドロビン",
+              "ko_KR": "한 줄에 URL 하나. 작업은 브라우저에 라운드로빈",
+              "th_TH": "หนึ่ง URL ต่อบรรทัด งานวนไปยังเบราว์เซอร์",
+              "id_ID": "Satu URL per baris; tugas round-robin ke browser",
+              "ms_MY": "Satu URL setiap baris; tugas round-robin ke pelayar",
+              "vi_VN": "Mỗi dòng một URL; nhiệm vụ round-robin theo trình duyệt",
+              "de_DE": "Eine URL pro Zeile; Aufgaben rundum auf Browser",
+              "es_ES": "Una URL por línea; tareas en round-robin a navegadores",
+              "pt_BR": "Uma URL por linha; tarefas em round-robin nos navegadores",
+              "fr_FR": "Une URL par ligne ; tâches en round-robin sur les navigateurs",
+              "ru_RU": "По одному URL в строке; задачи по кругу на браузеры"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "messages",
+            "type": "text",
+            "label": {
+              "en_US": "Message texts",
+              "zh_CN": "私信文案",
+              "zh_TW": "私訊文案",
+              "ja_JP": "メッセージ本文",
+              "ko_KR": "메시지 본문",
+              "th_TH": "ข้อความ",
+              "id_ID": "Teks pesan",
+              "ms_MY": "Teks mesej",
+              "vi_VN": "Nội dung tin nhắn",
+              "de_DE": "Nachrichtentexte",
+              "es_ES": "Textos de mensaje",
+              "pt_BR": "Textos da mensagem",
+              "fr_FR": "Textes de message",
+              "ru_RU": "Тексты сообщений"
+            },
+            "hint": {
+              "en_US": "Separate variants with ==sep==; round-robin with each profile",
+              "zh_CN": "多条文案用 ==sep== 分隔，与主页按序号轮询配对",
+              "zh_TW": "多條文案用 ==sep== 分隔，與主頁依序輪詢配對",
+              "ja_JP": "==sep== で区切り、プロフィールとラウンドロビン",
+              "ko_KR": "==sep==로 구분, 프로필과 라운드로빈 매칭",
+              "th_TH": "แยกด้วย ==sep== จับคู่โปรไฟล์แบบวน",
+              "id_ID": "Pisahkan dengan ==sep==; round-robin dengan profil",
+              "ms_MY": "Pisah dengan ==sep==; round-robin dengan profil",
+              "vi_VN": "Tách bằng ==sep==; round-robin với từng hồ sơ",
+              "de_DE": "Mit ==sep== trennen; Round-Robin mit Profilen",
+              "es_ES": "Separe con ==sep==; round-robin con perfiles",
+              "pt_BR": "Separe com ==sep==; round-robin com perfis",
+              "fr_FR": "Séparez avec ==sep== ; round-robin avec les profils",
+              "ru_RU": "Разделяйте ==sep==; round-robin с профилями"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "images",
+            "type": "resource",
+            "label": {
+              "en_US": "Images (optional)",
+              "zh_CN": "图片（可选）",
+              "zh_TW": "圖片（可選）",
+              "ja_JP": "画像（任意）",
+              "ko_KR": "이미지(선택)",
+              "th_TH": "รูปภาพ (ไม่บังคับ)",
+              "id_ID": "Gambar (opsional)",
+              "ms_MY": "Imej (pilihan)",
+              "vi_VN": "Ảnh (tùy chọn)",
+              "de_DE": "Bilder (optional)",
+              "es_ES": "Imágenes (opcional)",
+              "pt_BR": "Imagens (opcional)",
+              "fr_FR": "Images (facultatif)",
+              "ru_RU": "Изображения (необязательно)"
+            },
+            "hint": {
+              "en_US": "Optional; multi-select; round-robin with each profile",
+              "zh_CN": "可选多选；与主页按序号轮询配对",
+              "zh_TW": "可選多選；與主頁依序輪詢配對",
+              "ja_JP": "任意・複数可。プロフィールとラウンドロビン",
+              "ko_KR": "선택·다중. 프로필과 라운드로빈",
+              "th_TH": "ไม่บังคับ เลือกได้หลายรูป วนคู่โปรไฟล์",
+              "id_ID": "Opsional; multi; round-robin dengan profil",
+              "ms_MY": "Pilihan; berbilang; round-robin dengan profil",
+              "vi_VN": "Tùy chọn; chọn nhiều; round-robin với hồ sơ",
+              "de_DE": "Optional; Mehrfach; Round-Robin mit Profilen",
+              "es_ES": "Opcional; múltiple; round-robin con perfiles",
+              "pt_BR": "Opcional; múltiplas; round-robin com perfis",
+              "fr_FR": "Facultatif ; multi ; round-robin avec profils",
+              "ru_RU": "Необязательно; несколько; round-robin с профилями"
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": []
+          },
+          {
+            "key": "browsers",
+            "type": "browser",
+            "label": {
+              "en_US": "Browsers",
+              "zh_CN": "浏览器",
+              "zh_TW": "瀏覽器",
+              "ja_JP": "ブラウザ",
+              "ko_KR": "브라우저",
+              "th_TH": "เบราว์เซอร์",
+              "id_ID": "Browser",
+              "ms_MY": "Pelayar",
+              "vi_VN": "Trình duyệt",
+              "de_DE": "Browser",
+              "es_ES": "Navegadores",
+              "pt_BR": "Navegadores",
+              "fr_FR": "Navigateurs",
+              "ru_RU": "Браузеры"
+            },
+            "hint": {
+              "en_US": "Select devices that should run this task",
+              "zh_CN": "选择需要执行此任务的设备",
+              "zh_TW": "選擇需要執行此任務的裝置",
+              "ja_JP": "このタスクを実行するデバイスを選択",
+              "ko_KR": "이 작업을 실행할 기기를 선택",
+              "th_TH": "เลือกอุปกรณ์ที่จะรันงานนี้",
+              "id_ID": "Pilih perangkat yang menjalankan tugas ini",
+              "ms_MY": "Pilih peranti yang akan jalankan tugas ini",
+              "vi_VN": "Chọn thiết bị sẽ chạy nhiệm vụ này",
+              "de_DE": "Geräte auswählen, die diese Aufgabe ausführen sollen",
+              "es_ES": "Seleccione los dispositivos que ejecutarán esta tarea",
+              "pt_BR": "Selecione os dispositivos que executarão esta tarefa",
+              "fr_FR": "Sélectionnez les appareils qui exécuteront cette tâche",
+              "ru_RU": "Выберите устройства для выполнения этой задачи"
+            },
+            "single": false,
+            "platform": "instagram",
+            "defaultValue": []
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Schedule",
+          "zh_CN": "频率规划控制",
+          "zh_TW": "頻率規劃控制",
+          "ja_JP": "スケジュール",
+          "ko_KR": "일정",
+          "th_TH": "กำหนดการ",
+          "id_ID": "Jadwal",
+          "ms_MY": "Jadual",
+          "vi_VN": "Lịch trình",
+          "de_DE": "Zeitplan",
+          "es_ES": "Programación",
+          "pt_BR": "Agendamento",
+          "fr_FR": "Planification",
+          "ru_RU": "Расписание"
+        },
+        "fields": [
+          {
+            "key": "daily_limit",
+            "type": "text",
+            "label": {
+              "en_US": "Daily limit",
+              "zh_CN": "每日上限",
+              "zh_TW": "每日上限",
+              "ja_JP": "1日の上限",
+              "ko_KR": "일일 한도",
+              "th_TH": "ขีดจำกัดรายวัน",
+              "id_ID": "Batas harian",
+              "ms_MY": "Had harian",
+              "vi_VN": "Giới hạn hàng ngày",
+              "de_DE": "Tageslimit",
+              "es_ES": "Límite diario",
+              "pt_BR": "Limite diário",
+              "fr_FR": "Limite quotidienne",
+              "ru_RU": "Дневной лимит"
+            },
+            "hint": {
+              "en_US": "Max tasks assigned to each device per day",
+              "zh_CN": "每个设备每天最多分配多少个任务",
+              "zh_TW": "每個裝置每天最多分配多少個任務",
+              "ja_JP": "各デバイスに1日あたり割り当てる最大タスク数",
+              "ko_KR": "기기당 하루 최대 할당 작업 수",
+              "th_TH": "จำนวนงานสูงสุดที่มอบหมายต่ออุปกรณ์ต่อวัน",
+              "id_ID": "Maks. tugas yang dialokasikan per perangkat per hari",
+              "ms_MY": "Maks tugas diperuntukkan kepada setiap peranti sehari",
+              "vi_VN": "Số nhiệm vụ tối đa gán cho mỗi thiết bị mỗi ngày",
+              "de_DE": "Max. Aufgaben pro Gerät und Tag",
+              "es_ES": "Máx. de tareas asignadas a cada dispositivo por día",
+              "pt_BR": "Máx. de tarefas atribuídas a cada dispositivo por dia",
+              "fr_FR": "Nombre max. de tâches par appareil et par jour",
+              "ru_RU": "Макс. число задач на устройство в день"
+            },
+            "inputType": "number",
+            "defaultValue": 10
+          },
+          {
+            "key": "during_min",
+            "type": "text",
+            "label": {
+              "en_US": "Min interval (s)",
+              "zh_CN": "最小间隔（s）",
+              "zh_TW": "最小間隔（s）",
+              "ja_JP": "最小間隔（秒）",
+              "ko_KR": "최소 간격(초)",
+              "th_TH": "ช่วงห่างขั้นต่ำ (วินาที)",
+              "id_ID": "Interval min (d)",
+              "ms_MY": "Selang min (s)",
+              "vi_VN": "Khoảng tối thiểu (giây)",
+              "de_DE": "Min. Abstand (s)",
+              "es_ES": "Intervalo mín. (s)",
+              "pt_BR": "Intervalo mín. (s)",
+              "fr_FR": "Intervalle min. (s)",
+              "ru_RU": "Мин. интервал (с)"
+            },
+            "hint": {
+              "en_US": "Min interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最小间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最小間隔（秒）",
+              "ja_JP": "同一デバイスでの実行間隔の最小値（秒）",
+              "ko_KR": "동일 기기 실행 간 최소 간격(초)",
+              "th_TH": "ช่วงห่างขั้นต่ำระหว่างการรันบนอุปกรณ์เดียวกัน (วินาที)",
+              "id_ID": "Interval min antar jalan pada perangkat yang sama (detik)",
+              "ms_MY": "Selang min antara larian pada peranti sama (saat)",
+              "vi_VN": "Khoảng tối thiểu giữa các lần chạy trên cùng thiết bị (giây)",
+              "de_DE": "Min. Abstand zwischen Läufen auf demselben Gerät (Sekunden)",
+              "es_ES": "Intervalo mín. entre ejecuciones en el mismo dispositivo (segundos)",
+              "pt_BR": "Intervalo mín. entre execuções no mesmo dispositivo (segundos)",
+              "fr_FR": "Intervalle min. entre exécutions sur le même appareil (secondes)",
+              "ru_RU": "Мин. интервал между запусками на одном устройстве (сек)"
+            },
+            "defaultValue": "60"
+          },
+          {
+            "key": "during_max",
+            "type": "text",
+            "label": {
+              "en_US": "Max interval (s)",
+              "zh_CN": "最大间隔（s）",
+              "zh_TW": "最大間隔（s）",
+              "ja_JP": "最大間隔（秒）",
+              "ko_KR": "최대 간격(초)",
+              "th_TH": "ช่วงห่างสูงสุด (วินาที)",
+              "id_ID": "Interval maks (d)",
+              "ms_MY": "Selang maks (s)",
+              "vi_VN": "Khoảng tối đa (giây)",
+              "de_DE": "Max. Abstand (s)",
+              "es_ES": "Intervalo máx. (s)",
+              "pt_BR": "Intervalo máx. (s)",
+              "fr_FR": "Intervalle max. (s)",
+              "ru_RU": "Макс. интервал (с)"
+            },
+            "hint": {
+              "en_US": "Max interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最大间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最大間隔（秒）",
+              "ja_JP": "同一デバイスでの実行間隔の最大値（秒）",
+              "ko_KR": "동일 기기 실행 간 최대 간격(초)",
+              "th_TH": "ช่วงห่างสูงสุดระหว่างการรันบนอุปกรณ์เดียวกัน (วินาที)",
+              "id_ID": "Interval maks antar jalan pada perangkat yang sama (detik)",
+              "ms_MY": "Selang maks antara larian pada peranti sama (saat)",
+              "vi_VN": "Khoảng tối đa giữa các lần chạy trên cùng thiết bị (giây)",
+              "de_DE": "Max. Abstand zwischen Läufen auf demselben Gerät (Sekunden)",
+              "es_ES": "Intervalo máx. entre ejecuciones en el mismo dispositivo (segundos)",
+              "pt_BR": "Intervalo máx. entre execuções no mesmo dispositivo (segundos)",
+              "fr_FR": "Intervalle max. entre exécutions sur le même appareil (secondes)",
+              "ru_RU": "Макс. интервал между запусками на одном устройстве (сек)"
+            },
+            "defaultValue": "600"
+          },
+          {
+            "key": "daily_time_start",
+            "type": "time",
+            "label": {
+              "en_US": "Daily start time",
+              "zh_CN": "每日执行开始时刻",
+              "zh_TW": "每日執行開始時刻",
+              "ja_JP": "毎日の開始時刻",
+              "ko_KR": "일일 시작 시각",
+              "th_TH": "เวลาเริ่มรายวัน",
+              "id_ID": "Waktu mulai harian",
+              "ms_MY": "Masa mula harian",
+              "vi_VN": "Giờ bắt đầu mỗi ngày",
+              "de_DE": "Täglicher Startzeitpunkt",
+              "es_ES": "Hora de inicio diaria",
+              "pt_BR": "Horário de início diário",
+              "fr_FR": "Heure de début quotidienne",
+              "ru_RU": "Ежедневное время начала"
+            },
+            "defaultValue": "09:00"
+          },
+          {
+            "key": "daily_time_end",
+            "type": "time",
+            "label": {
+              "en_US": "Daily end time",
+              "zh_CN": "每日执行结束时刻",
+              "zh_TW": "每日執行結束時刻",
+              "ja_JP": "毎日の終了時刻",
+              "ko_KR": "일일 종료 시각",
+              "th_TH": "เวลาสิ้นสุดรายวัน",
+              "id_ID": "Waktu selesai harian",
+              "ms_MY": "Masa tamat harian",
+              "vi_VN": "Giờ kết thúc mỗi ngày",
+              "de_DE": "Täglicher Endzeitpunkt",
+              "es_ES": "Hora de fin diaria",
+              "pt_BR": "Horário de término diário",
+              "fr_FR": "Heure de fin quotidienne",
+              "ru_RU": "Ежедневное время окончания"
+            },
+            "defaultValue": "18:00"
+          }
+        ]
+      }
+    ],
+    "taskRunConfig": [
+      {
+        "title": {
+          "en_US": "Direct message",
+          "zh_CN": "私信内容",
+          "zh_TW": "私訊內容",
+          "ja_JP": "ダイレクトメッセージ",
+          "ko_KR": "다이렉트 메시지",
+          "th_TH": "ข้อความตรง",
+          "id_ID": "Pesan langsung",
+          "ms_MY": "Mesej terus",
+          "vi_VN": "Tin nhắn trực tiếp",
+          "de_DE": "Direktnachricht",
+          "es_ES": "Mensaje directo",
+          "pt_BR": "Mensagem direta",
+          "fr_FR": "Message direct",
+          "ru_RU": "Личное сообщение"
+        },
+        "fields": [
+          {
+            "key": "host",
+            "type": "text",
+            "label": {
+              "en_US": "Profile URL",
+              "zh_CN": "目标用户主页链接",
+              "zh_TW": "目標使用者主頁連結",
+              "ja_JP": "プロフィール URL",
+              "ko_KR": "프로필 URL",
+              "th_TH": "URL โปรไฟล์",
+              "id_ID": "URL profil",
+              "ms_MY": "URL profil",
+              "vi_VN": "URL hồ sơ",
+              "de_DE": "Profil-URL",
+              "es_ES": "URL del perfil",
+              "pt_BR": "URL do perfil",
+              "fr_FR": "URL du profil",
+              "ru_RU": "URL профиля"
+            },
+            "hint": {
+              "en_US": "e.g. https://www.instagram.com/username/",
+              "zh_CN": "例如 https://www.instagram.com/username/",
+              "zh_TW": "例如 https://www.instagram.com/username/",
+              "ja_JP": "例: https://www.instagram.com/username/",
+              "ko_KR": "예: https://www.instagram.com/username/",
+              "th_TH": "เช่น https://www.instagram.com/username/",
+              "id_ID": "mis. https://www.instagram.com/username/",
+              "ms_MY": "cth. https://www.instagram.com/username/",
+              "vi_VN": "vd. https://www.instagram.com/username/",
+              "de_DE": "z. B. https://www.instagram.com/username/",
+              "es_ES": "p. ej. https://www.instagram.com/username/",
+              "pt_BR": "ex. https://www.instagram.com/username/",
+              "fr_FR": "ex. https://www.instagram.com/username/",
+              "ru_RU": "напр. https://www.instagram.com/username/"
+            },
+            "defaultValue": ""
+          },
+          {
+            "key": "message",
+            "type": "text",
+            "label": {
+              "en_US": "Message text",
+              "zh_CN": "私信文案",
+              "zh_TW": "私訊文案",
+              "ja_JP": "メッセージ本文",
+              "ko_KR": "메시지 본문",
+              "th_TH": "ข้อความ",
+              "id_ID": "Teks pesan",
+              "ms_MY": "Teks mesej",
+              "vi_VN": "Nội dung tin nhắn",
+              "de_DE": "Nachrichtentext",
+              "es_ES": "Texto del mensaje",
+              "pt_BR": "Texto da mensagem",
+              "fr_FR": "Texte du message",
+              "ru_RU": "Текст сообщения"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "image",
+            "type": "resource",
+            "label": {
+              "en_US": "Image (optional)",
+              "zh_CN": "图片（可选）",
+              "zh_TW": "圖片（可選）",
+              "ja_JP": "画像（任意）",
+              "ko_KR": "이미지(선택)",
+              "th_TH": "รูปภาพ (ไม่บังคับ)",
+              "id_ID": "Gambar (opsional)",
+              "ms_MY": "Imej (pilihan)",
+              "vi_VN": "Ảnh (tùy chọn)",
+              "de_DE": "Bild (optional)",
+              "es_ES": "Imagen (opcional)",
+              "pt_BR": "Imagem (opcional)",
+              "fr_FR": "Image (facultative)",
+              "ru_RU": "Изображение (необязательно)"
+            },
+            "hint": {
+              "en_US": "Optional attachment; leave empty to send text only",
+              "zh_CN": "可选附件；不选则只发文字",
+              "zh_TW": "可選附件；不選則只發文字",
+              "ja_JP": "任意の添付。空ならテキストのみ",
+              "ko_KR": "선택 첨부. 비우면 텍스트만 전송",
+              "th_TH": "ไฟล์แนบเสริม เว้นว่างเพื่อส่งเฉพาะข้อความ",
+              "id_ID": "Lampiran opsional; kosongkan untuk teks saja",
+              "ms_MY": "Lampiran pilihan; biar kosong untuk teks sahaja",
+              "vi_VN": "Tệp đính kèm tùy chọn; để trống chỉ gửi chữ",
+              "de_DE": "Optionaler Anhang; leer = nur Text",
+              "es_ES": "Adjunto opcional; vacío = solo texto",
+              "pt_BR": "Anexo opcional; vazio = só texto",
+              "fr_FR": "Pièce jointe facultative; vide = texte seul",
+              "ru_RU": "Необязательное вложение; пусто = только текст"
+            },
+            "allowMultiple": false,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": null
+          }
+        ]
+      }
+    ],
+    "taskResultConfig": [
+      {
+        "title": {
+          "en_US": "Run result",
+          "zh_CN": "执行结果",
+          "zh_TW": "執行結果",
+          "ja_JP": "実行結果",
+          "ko_KR": "실행 결과",
+          "th_TH": "ผลการรัน",
+          "id_ID": "Hasil eksekusi",
+          "ms_MY": "Hasil larian",
+          "vi_VN": "Kết quả chạy",
+          "de_DE": "Ausführungsergebnis",
+          "es_ES": "Resultado de ejecución",
+          "pt_BR": "Resultado da execução",
+          "fr_FR": "Résultat d'exécution",
+          "ru_RU": "Результат выполнения"
+        },
+        "fields": [
+          {
+            "key": "host",
+            "type": "text",
+            "label": {
+              "en_US": "Target profile",
+              "zh_CN": "目标主页",
+              "zh_TW": "目標主頁",
+              "ja_JP": "対象プロフィール",
+              "ko_KR": "대상 프로필",
+              "th_TH": "โปรไฟล์เป้าหมาย",
+              "id_ID": "Profil target",
+              "ms_MY": "Profil sasaran",
+              "vi_VN": "Hồ sơ đích",
+              "de_DE": "Zielprofil",
+              "es_ES": "Perfil de destino",
+              "pt_BR": "Perfil alvo",
+              "fr_FR": "Profil cible",
+              "ru_RU": "Целевой профиль"
+            }
+          },
+          {
+            "key": "messagePreview",
+            "type": "text",
+            "label": {
+              "en_US": "Message preview",
+              "zh_CN": "文案摘要",
+              "zh_TW": "文案摘要",
+              "ja_JP": "メッセージ要約",
+              "ko_KR": "메시지 미리보기",
+              "th_TH": "ตัวอย่างข้อความ",
+              "id_ID": "Pratinjau pesan",
+              "ms_MY": "Pratonton mesej",
+              "vi_VN": "Xem trước tin nhắn",
+              "de_DE": "Nachrichtenvorschau",
+              "es_ES": "Vista previa del mensaje",
+              "pt_BR": "Prévia da mensagem",
+              "fr_FR": "Aperçu du message",
+              "ru_RU": "Превью сообщения"
+            }
+          },
+          {
+            "key": "hasImage",
+            "type": "stat",
+            "label": {
+              "en_US": "Attached image",
+              "zh_CN": "是否附图",
+              "zh_TW": "是否附圖",
+              "ja_JP": "画像添付",
+              "ko_KR": "이미지 첨부",
+              "th_TH": "แนบรูปภาพ",
+              "id_ID": "Lampiran gambar",
+              "ms_MY": "Imej dilampirkan",
+              "vi_VN": "Có đính ảnh",
+              "de_DE": "Bild angehängt",
+              "es_ES": "Imagen adjunta",
+              "pt_BR": "Imagem anexada",
+              "fr_FR": "Image jointe",
+              "ru_RU": "Изображение приложено"
+            }
+          },
+          {
+            "key": "finalUrl",
+            "type": "text",
+            "label": {
+              "en_US": "Final URL",
+              "zh_CN": "最终页面地址",
+              "zh_TW": "最終頁面地址",
+              "ja_JP": "最終 URL",
+              "ko_KR": "최종 URL",
+              "th_TH": "URL สุดท้าย",
+              "id_ID": "URL akhir",
+              "ms_MY": "URL akhir",
+              "vi_VN": "URL cuối",
+              "de_DE": "Endgültige URL",
+              "es_ES": "URL final",
+              "pt_BR": "URL final",
+              "fr_FR": "URL finale",
+              "ru_RU": "Итоговый URL"
+            }
+          }
+        ]
+      }
+    ],
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    }
+  }
+}

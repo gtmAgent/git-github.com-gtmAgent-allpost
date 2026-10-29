@@ -1,0 +1,427 @@
+{
+  "name": "ig-sreach-keywordvideo-user",
+  "version": "1.1.1",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "Instagram keyword video users",
+    "zh_CN": "Instagram采集关键词视频用户",
+    "zh_TW": "Instagram採集關鍵詞視頻用戶",
+    "ja_JP": "Instagramキーワード動画ユーザー",
+    "ko_KR": "Instagram 키워드 영상 사용자",
+    "th_TH": "ผู้ใช้วิดีโอคีย์เวิร์ด Instagram",
+    "id_ID": "Pengguna video kata kunci Instagram",
+    "ms_MY": "Pengguna video kata kunci Instagram",
+    "vi_VN": "Người dùng video theo từ khóa Instagram",
+    "de_DE": "Instagram Keyword-Video-Nutzer",
+    "es_ES": "Usuarios de video por palabra clave de Instagram",
+    "pt_BR": "Usuários de vídeo por palavra-chave do Instagram",
+    "fr_FR": "Utilisateurs vidéo Instagram par mot-clé",
+    "ru_RU": "Пользователи видео Instagram по ключевым словам"
+  },
+  "description": {
+    "en_US": "Search Instagram by keyword and collect video author profile links",
+    "zh_CN": "按关键词搜索 Instagram，采集视频作者主页链接",
+    "zh_TW": "依關鍵詞搜尋 Instagram，採集視頻作者主頁連結",
+    "ja_JP": "キーワードでInstagramを検索し、動画投稿者のプロフィールURLを収集",
+    "ko_KR": "키워드로 Instagram을 검색하고 영상 작성자 프로필 링크를 수집",
+    "th_TH": "ค้นหา Instagram ตามคีย์เวิร์ดและเก็บลิงก์โปรไฟล์ผู้โพสต์วิดีโอ",
+    "id_ID": "Cari Instagram berdasarkan kata kunci dan kumpulkan tautan profil penulis video",
+    "ms_MY": "Cari Instagram mengikut kata kunci dan kumpulkan pautan profil pengarang video",
+    "vi_VN": "Tìm Instagram theo từ khóa và thu thập liên kết trang cá nhân tác giả video",
+    "de_DE": "Instagram per Keyword durchsuchen und Profil-Links von Video-Autoren erfassen",
+    "es_ES": "Buscar en Instagram por palabra clave y recopilar enlaces de perfiles de autores de video",
+    "pt_BR": "Pesquisar o Instagram por palavra-chave e coletar links de perfil de autores de vídeo",
+    "fr_FR": "Rechercher Instagram par mot-clé et collecter les liens de profil des auteurs vidéo",
+    "ru_RU": "Поиск Instagram по ключевому слову и сбор ссылок на профили авторов видео"
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-browser-sdk": "file:../xport_browser_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportAutomation": {
+    "taskGroupConfig": [
+      {
+        "title": {
+          "en_US": "Keywords & browsers",
+          "zh_CN": "关键词与浏览器",
+          "zh_TW": "關鍵詞與瀏覽器",
+          "ja_JP": "キーワードとブラウザ",
+          "ko_KR": "키워드 및 브라우저",
+          "th_TH": "คีย์เวิร์ดและเบราว์เซอร์",
+          "id_ID": "Kata kunci & browser",
+          "ms_MY": "Kata kunci & pelayar",
+          "vi_VN": "Từ khóa & trình duyệt",
+          "de_DE": "Keywords & Browser",
+          "es_ES": "Palabras clave y navegadores",
+          "pt_BR": "Palavras-chave e navegadores",
+          "fr_FR": "Mots-clés et navigateurs",
+          "ru_RU": "Ключевые слова и браузеры"
+        },
+        "fields": [
+          {
+            "key": "keywords",
+            "type": "text",
+            "label": {
+              "en_US": "Keywords",
+              "zh_CN": "关键词",
+              "zh_TW": "關鍵詞",
+              "ja_JP": "キーワード",
+              "ko_KR": "키워드",
+              "th_TH": "คีย์เวิร์ด",
+              "id_ID": "Kata kunci",
+              "ms_MY": "Kata kunci",
+              "vi_VN": "Từ khóa",
+              "de_DE": "Keywords",
+              "es_ES": "Palabras clave",
+              "pt_BR": "Palavras-chave",
+              "fr_FR": "Mots-clés",
+              "ru_RU": "Ключевые слова"
+            },
+            "hint": {
+              "en_US": "One keyword per line; # is added automatically",
+              "zh_CN": "一行一个关键词，脚本自动加 #",
+              "zh_TW": "一行一個關鍵詞，腳本自動加 #",
+              "ja_JP": "1行に1キーワード。# は自動付与",
+              "ko_KR": "한 줄에 키워드 하나, #은 자동 추가",
+              "th_TH": "หนึ่งคีย์เวิร์ดต่อบรรทัด เติม # ให้อัตโนมัติ",
+              "id_ID": "Satu kata kunci per baris; # ditambahkan otomatis",
+              "ms_MY": "Satu kata kunci setiap baris; # ditambah automatik",
+              "vi_VN": "Mỗi dòng một từ khóa; tự động thêm #",
+              "de_DE": "Ein Keyword pro Zeile; # wird automatisch ergänzt",
+              "es_ES": "Una palabra clave por línea; se añade # automáticamente",
+              "pt_BR": "Uma palavra-chave por linha; # é adicionado automaticamente",
+              "fr_FR": "Un mot-clé par ligne ; # ajouté automatiquement",
+              "ru_RU": "Одно ключевое слово в строке; # добавляется автоматически"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "collect_count",
+            "type": "text",
+            "label": {
+              "en_US": "Users per keyword",
+              "zh_CN": "每个关键词采集数量",
+              "zh_TW": "每個關鍵詞採集數量",
+              "ja_JP": "キーワードあたりの収集数",
+              "ko_KR": "키워드당 수집 수",
+              "th_TH": "จำนวนที่เก็บต่อคีย์เวิร์ด",
+              "id_ID": "Jumlah per kata kunci",
+              "ms_MY": "Bilangan setiap kata kunci",
+              "vi_VN": "Số lượng mỗi từ khóa",
+              "de_DE": "Anzahl pro Keyword",
+              "es_ES": "Cantidad por palabra clave",
+              "pt_BR": "Quantidade por palavra-chave",
+              "fr_FR": "Nombre par mot-clé",
+              "ru_RU": "Количество на ключевое слово"
+            },
+            "hint": {
+              "en_US": "Max unique video author profiles to collect per keyword",
+              "zh_CN": "每个关键词最多采集多少个不重复的视频作者主页",
+              "zh_TW": "每個關鍵詞最多採集多少個不重複的視頻作者主頁",
+              "ja_JP": "キーワードごとに収集する動画投稿者プロフィールの上限",
+              "ko_KR": "키워드당 수집할 고유 영상 작성자 프로필 최대 수",
+              "th_TH": "จำนวนโปรไฟล์ผู้โพสต์วิดีโอสูงสุดต่อคีย์เวิร์ด",
+              "id_ID": "Maks. profil penulis video unik per kata kunci",
+              "ms_MY": "Maks profil pengarang video unik setiap kata kunci",
+              "vi_VN": "Tối đa hồ sơ tác giả video duy nhất mỗi từ khóa",
+              "de_DE": "Max. eindeutige Video-Autor-Profile pro Keyword",
+              "es_ES": "Máx. de perfiles únicos de autores de video por palabra clave",
+              "pt_BR": "Máx. de perfis únicos de autores de vídeo por palavra-chave",
+              "fr_FR": "Nombre max. de profils d’auteurs vidéo uniques par mot-clé",
+              "ru_RU": "Макс. уникальных профилей авторов видео на ключевое слово"
+            },
+            "inputType": "number",
+            "defaultValue": 20
+          },
+          {
+            "key": "browsers",
+            "type": "browser",
+            "label": {
+              "en_US": "Browsers",
+              "zh_CN": "浏览器",
+              "zh_TW": "瀏覽器",
+              "ja_JP": "ブラウザ",
+              "ko_KR": "브라우저",
+              "th_TH": "เบราว์เซอร์",
+              "id_ID": "Browser",
+              "ms_MY": "Pelayar",
+              "vi_VN": "Trình duyệt",
+              "de_DE": "Browser",
+              "es_ES": "Navegadores",
+              "pt_BR": "Navegadores",
+              "fr_FR": "Navigateurs",
+              "ru_RU": "Браузеры"
+            },
+            "hint": {
+              "en_US": "Keywords are distributed evenly across selected browsers",
+              "zh_CN": "关键词在所选浏览器之间平均分配",
+              "zh_TW": "關鍵詞在所選瀏覽器之間平均分配",
+              "ja_JP": "キーワードは選択したブラウザに均等割り当て",
+              "ko_KR": "선택한 브라우저에 키워드를 균등 분배",
+              "th_TH": "กระจายคีย์เวิร์ดเท่าๆ กันในเบราว์เซอร์ที่เลือก",
+              "id_ID": "Kata kunci didistribusikan merata ke browser terpilih",
+              "ms_MY": "Kata kunci diagihkan rata kepada pelayar dipilih",
+              "vi_VN": "Từ khóa được phân đều cho các trình duyệt đã chọn",
+              "de_DE": "Keywords werden gleichmäßig auf gewählte Browser verteilt",
+              "es_ES": "Las palabras clave se reparten equitativamente entre los navegadores seleccionados",
+              "pt_BR": "As palavras-chave são distribuídas igualmente entre os navegadores selecionados",
+              "fr_FR": "Les mots-clés sont répartis équitablement entre les navigateurs sélectionnés",
+              "ru_RU": "Ключевые слова равномерно распределяются по выбранным браузерам"
+            },
+            "single": false,
+            "platform": "instagram",
+            "defaultValue": []
+          }
+        ]
+      }
+    ],
+    "taskRunConfig": [
+      {
+        "title": {
+          "en_US": "Collection",
+          "zh_CN": "采集参数",
+          "zh_TW": "採集參數",
+          "ja_JP": "収集パラメータ",
+          "ko_KR": "수집 파라미터",
+          "th_TH": "พารามิเตอร์การเก็บ",
+          "id_ID": "Parameter pengumpulan",
+          "ms_MY": "Parameter pengumpulan",
+          "vi_VN": "Tham số thu thập",
+          "de_DE": "Erfassung",
+          "es_ES": "Recopilación",
+          "pt_BR": "Coleta",
+          "fr_FR": "Collecte",
+          "ru_RU": "Сбор"
+        },
+        "fields": [
+          {
+            "key": "keyword",
+            "type": "text",
+            "label": {
+              "en_US": "Keyword",
+              "zh_CN": "关键词",
+              "zh_TW": "關鍵詞",
+              "ja_JP": "キーワード",
+              "ko_KR": "키워드",
+              "th_TH": "คีย์เวิร์ด",
+              "id_ID": "Kata kunci",
+              "ms_MY": "Kata kunci",
+              "vi_VN": "Từ khóa",
+              "de_DE": "Keyword",
+              "es_ES": "Palabra clave",
+              "pt_BR": "Palavra-chave",
+              "fr_FR": "Mot-clé",
+              "ru_RU": "Ключевое слово"
+            },
+            "defaultValue": "鞋服"
+          },
+          {
+            "key": "collect_count",
+            "type": "text",
+            "label": {
+              "en_US": "Collect count",
+              "zh_CN": "采集数量",
+              "zh_TW": "採集數量",
+              "ja_JP": "収集数",
+              "ko_KR": "수집 수",
+              "th_TH": "จำนวนที่เก็บ",
+              "id_ID": "Jumlah pengumpulan",
+              "ms_MY": "Bilangan pengumpulan",
+              "vi_VN": "Số lượng thu thập",
+              "de_DE": "Anzahl",
+              "es_ES": "Cantidad",
+              "pt_BR": "Quantidade",
+              "fr_FR": "Nombre",
+              "ru_RU": "Количество"
+            },
+            "inputType": "number",
+            "defaultValue": 20
+          }
+        ]
+      }
+    ],
+    "intermediateDataSchema": {
+      "fields": [
+        {
+          "key": "keyword",
+          "type": "text",
+          "label": {
+            "en_US": "Keyword",
+            "zh_CN": "关键词",
+            "zh_TW": "關鍵詞",
+            "ja_JP": "キーワード",
+            "ko_KR": "키워드",
+            "th_TH": "คีย์เวิร์ด",
+            "id_ID": "Kata kunci",
+            "ms_MY": "Kata kunci",
+            "vi_VN": "Từ khóa",
+            "de_DE": "Keyword",
+            "es_ES": "Palabra clave",
+            "pt_BR": "Palavra-chave",
+            "fr_FR": "Mot-clé",
+            "ru_RU": "Ключевое слово"
+          }
+        },
+        {
+          "key": "username",
+          "type": "text",
+          "label": {
+            "en_US": "Username",
+            "zh_CN": "用户名",
+            "zh_TW": "使用者名稱",
+            "ja_JP": "ユーザー名",
+            "ko_KR": "사용자명",
+            "th_TH": "ชื่อผู้ใช้",
+            "id_ID": "Nama pengguna",
+            "ms_MY": "Nama pengguna",
+            "vi_VN": "Tên người dùng",
+            "de_DE": "Benutzername",
+            "es_ES": "Nombre de usuario",
+            "pt_BR": "Nome de usuário",
+            "fr_FR": "Nom d’utilisateur",
+            "ru_RU": "Имя пользователя"
+          }
+        },
+        {
+          "key": "profileUrl",
+          "type": "text",
+          "label": {
+            "en_US": "Profile URL",
+            "zh_CN": "主页链接",
+            "zh_TW": "主頁連結",
+            "ja_JP": "プロフィールURL",
+            "ko_KR": "프로필 URL",
+            "th_TH": "URL โปรไฟล์",
+            "id_ID": "URL profil",
+            "ms_MY": "URL profil",
+            "vi_VN": "URL trang cá nhân",
+            "de_DE": "Profil-URL",
+            "es_ES": "URL del perfil",
+            "pt_BR": "URL do perfil",
+            "fr_FR": "URL du profil",
+            "ru_RU": "URL профиля"
+          }
+        },
+        {
+          "key": "sourcePostUrl",
+          "type": "text",
+          "label": {
+            "en_US": "Source post",
+            "zh_CN": "来源帖子",
+            "zh_TW": "來源貼文",
+            "ja_JP": "元投稿",
+            "ko_KR": "원본 게시물",
+            "th_TH": "โพสต์ต้นทาง",
+            "id_ID": "Postingan sumber",
+            "ms_MY": "Siaran sumber",
+            "vi_VN": "Bài đăng nguồn",
+            "de_DE": "Quellbeitrag",
+            "es_ES": "Publicación de origen",
+            "pt_BR": "Publicação de origem",
+            "fr_FR": "Publication source",
+            "ru_RU": "Исходная публикация"
+          }
+        }
+      ]
+    },
+    "taskResultConfig": [
+      {
+        "title": {
+          "en_US": "Run result",
+          "zh_CN": "执行结果",
+          "zh_TW": "執行結果",
+          "ja_JP": "実行結果",
+          "ko_KR": "실행 결과",
+          "th_TH": "ผลการรัน",
+          "id_ID": "Hasil eksekusi",
+          "ms_MY": "Hasil larian",
+          "vi_VN": "Kết quả chạy",
+          "de_DE": "Ausführungsergebnis",
+          "es_ES": "Resultado de ejecución",
+          "pt_BR": "Resultado da execução",
+          "fr_FR": "Résultat d'exécution",
+          "ru_RU": "Результат выполнения"
+        },
+        "fields": [
+          {
+            "key": "keyword",
+            "type": "text",
+            "label": {
+              "en_US": "Keyword",
+              "zh_CN": "关键词",
+              "zh_TW": "關鍵詞",
+              "ja_JP": "キーワード",
+              "ko_KR": "키워드",
+              "th_TH": "คีย์เวิร์ด",
+              "id_ID": "Kata kunci",
+              "ms_MY": "Kata kunci",
+              "vi_VN": "Từ khóa",
+              "de_DE": "Keyword",
+              "es_ES": "Palabra clave",
+              "pt_BR": "Palavra-chave",
+              "fr_FR": "Mot-clé",
+              "ru_RU": "Ключевое слово"
+            }
+          },
+          {
+            "key": "collectedCount",
+            "type": "stat",
+            "label": {
+              "en_US": "Collected",
+              "zh_CN": "采集条数",
+              "zh_TW": "採集條數",
+              "ja_JP": "収集件数",
+              "ko_KR": "수집 수",
+              "th_TH": "จำนวนที่เก็บได้",
+              "id_ID": "Jumlah terkumpul",
+              "ms_MY": "Bilangan dikumpul",
+              "vi_VN": "Số đã thu thập",
+              "de_DE": "Erfasst",
+              "es_ES": "Recopilados",
+              "pt_BR": "Coletados",
+              "fr_FR": "Collectés",
+              "ru_RU": "Собрано"
+            }
+          },
+          {
+            "key": "sampleProfiles",
+            "type": "text",
+            "label": {
+              "en_US": "Sample profiles",
+              "zh_CN": "样例主页",
+              "zh_TW": "樣例主頁",
+              "ja_JP": "プロフィール例",
+              "ko_KR": "샘플 프로필",
+              "th_TH": "ตัวอย่างโปรไฟล์",
+              "id_ID": "Contoh profil",
+              "ms_MY": "Contoh profil",
+              "vi_VN": "Mẫu trang cá nhân",
+              "de_DE": "Beispielprofile",
+              "es_ES": "Perfiles de ejemplo",
+              "pt_BR": "Perfis de exemplo",
+              "fr_FR": "Exemples de profils",
+              "ru_RU": "Примеры профилей"
+            }
+          }
+        ]
+      }
+    ],
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    }
+  }
+}

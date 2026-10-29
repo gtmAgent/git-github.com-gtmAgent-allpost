@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "uuid": "4c966f07-c2f9-49c6-9549-3375f161cb46",
+  "name": "Instagram采集关键词视频用户",
+  "description": "",
+  "deviceType": "browser",
+  "socialCategoryId": 2,
+  "deviceId": 552,
+  "createdAt": 1792737450,
+  "updatedAt": 1792739015,
+  "routes": [
+    {
+      "index": 1,
+      "routeId": "8b40fde2-15c6-424f-96f0-a12460820ee4",
+      "name": "Instagram采集关键词视频用户",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "16157f19-bc00-468e-aa04-808e06b5e768",
+          "title": "填入关键词",
+          "description": "",
+          "capturedAt": 1792738787,
+          "screenshot": "routes/001/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/001/annotated.png",
+          "markup": "routes/001/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/explore/",
+              "title": "Instagram",
+              "pagePath": "routes/001/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "0dc9dd7e-178b-4cf0-bca9-b52c9e2c0815",
+          "title": "填入关键词后，自动加#去搜索，选择第一个关键词",
+          "description": "",
+          "capturedAt": 1792738840,
+          "screenshot": "routes/001/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/002/annotated.png",
+          "markup": "routes/001/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/explore/",
+              "title": "Instagram",
+              "pagePath": "routes/001/steps/002/page.html"
+            }
+          }
+        },
+        {
+          "index": 3,
+          "stepId": "f7d74c1c-5f40-425c-b184-f3e35db47e0d",
+          "title": "采集视频用户的主页链接，",
+          "description": "并且1.自动化尽量避免与界面语言类型相关 2.自动化功能的稳定性稳定",
+          "capturedAt": 1792738908,
+          "screenshot": "routes/001/steps/003/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/003/annotated.png",
+          "markup": "routes/001/steps/003/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.instagram.com/explore/search/keyword/?q=%23%E9%9E%8B%E6%9C%8D",
+              "title": "#鞋服 • Instagram",
+              "pagePath": "routes/001/steps/003/page.html"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

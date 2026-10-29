@@ -1,0 +1,439 @@
+{
+  "name": "ins-search-follower-message",
+  "version": "1.2.0",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "IG keyword users + DM",
+    "zh_CN": "IG关键词用户采集+私信",
+    "zh_TW": "IG關鍵詞用戶採集+私訊",
+    "ja_JP": "IGキーワードユーザー収集+DM",
+    "ko_KR": "IG 키워드 사용자 수집+DM",
+    "th_TH": "IG เก็บผู้ใช้คีย์เวิร์ด+DM",
+    "id_ID": "IG kumpulkan user kata kunci + DM",
+    "ms_MY": "IG kumpul pengguna kata kunci + DM",
+    "vi_VN": "IG thu thập user từ khóa + nhắn tin",
+    "de_DE": "IG Keyword-Nutzer sammeln + DM",
+    "es_ES": "IG usuarios por keyword + DM",
+    "pt_BR": "IG usuários por palavra-chave + DM",
+    "fr_FR": "IG utilisateurs mot-clé + DM",
+    "ru_RU": "IG сбор пользователей по ключу + ЛС"
+  },
+  "description": {
+    "en_US": "Enter a keyword; collect video authors by browsers × DMs-per-browser, then send DMs in parallel.",
+    "zh_CN": "填写关键词，按浏览器数×每台私信条数自动采集视频作者，再并行发送私信。",
+    "zh_TW": "填寫關鍵詞，依瀏覽器數×每台私訊條數自動採集影片作者，再並行發送私訊。",
+    "ja_JP": "キーワードを入力し、ブラウザ数×台あたりDM数で動画投稿者を収集して並行DMします。",
+    "ko_KR": "키워드를 입력하고 브라우저 수×기기당 DM 수로 영상 작성자를 수집한 뒤 병렬 DM합니다.",
+    "th_TH": "ใส่คีย์เวิร์ด เก็บผู้โพสต์วิดีโอตามจำนวนเบราว์เซอร์×DM ต่อเครื่อง แล้วส่ง DM ขนาน",
+    "id_ID": "Masukkan kata kunci; kumpulkan penulis video = browser × DM/perangkat, lalu kirim DM paralel.",
+    "ms_MY": "Masukkan kata kunci; kumpul pengarang video = pelayar × DM/peranti, lalu hantar DM selari.",
+    "vi_VN": "Nhập từ khóa; thu thập tác giả video = số trình duyệt × tin mỗi máy, rồi nhắn tin song song.",
+    "de_DE": "Keyword eingeben; Videoautoren = Browser × DMs/Gerät sammeln, dann parallele DMs.",
+    "es_ES": "Introduzca una keyword; recolecte autores = navegadores × DMs/dispositivo y envíe DMs en paralelo.",
+    "pt_BR": "Informe uma palavra-chave; colete autores = navegadores × DMs/dispositivo e envie DMs em paralelo.",
+    "fr_FR": "Saisissez un mot-clé ; collectez les auteurs = navigateurs × DM/appareil, puis DM en parallèle.",
+    "ru_RU": "Укажите ключ; соберите авторов = браузеры × ЛС/устройство, затем параллельные ЛС."
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-workflow-sdk": "file:../xport_workflow_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportWorkflow": {
+    "workflowRunConfig": [
+      {
+        "title": {
+          "en_US": "Targets & devices",
+          "zh_CN": "目标与设备",
+          "zh_TW": "目標與裝置",
+          "ja_JP": "対象とデバイス",
+          "ko_KR": "대상과 기기",
+          "th_TH": "เป้าหมายและอุปกรณ์",
+          "id_ID": "Target & perangkat",
+          "ms_MY": "Sasaran & peranti",
+          "vi_VN": "Mục tiêu & thiết bị",
+          "de_DE": "Ziele & Geräte",
+          "es_ES": "Objetivos y dispositivos",
+          "pt_BR": "Alvos e dispositivos",
+          "fr_FR": "Cibles et appareils",
+          "ru_RU": "Цели и устройства"
+        },
+        "fields": [
+          {
+            "key": "keyword",
+            "type": "text",
+            "label": {
+              "en_US": "Keyword",
+              "zh_CN": "关键词",
+              "zh_TW": "關鍵詞",
+              "ja_JP": "キーワード",
+              "ko_KR": "키워드",
+              "th_TH": "คีย์เวิร์ด",
+              "id_ID": "Kata kunci",
+              "ms_MY": "Kata kunci",
+              "vi_VN": "Từ khóa",
+              "de_DE": "Keyword",
+              "es_ES": "Palabra clave",
+              "pt_BR": "Palavra-chave",
+              "fr_FR": "Mot-clé",
+              "ru_RU": "Ключевое слово"
+            },
+            "hint": {
+              "en_US": "e.g. shoes; # is added automatically",
+              "zh_CN": "例如鞋服；脚本会自动加 #",
+              "zh_TW": "例如鞋服；腳本會自動加 #",
+              "ja_JP": "例: 靴服。# は自動付与",
+              "ko_KR": "예: 신발의류. #은 자동 추가",
+              "th_TH": "เช่น รองเท้า; เติม # อัตโนมัติ",
+              "id_ID": "mis. sepatu; # ditambah otomatis",
+              "ms_MY": "cth. kasut; # ditambah automatik",
+              "vi_VN": "vd. giày dép; tự thêm #",
+              "de_DE": "z. B. Schuhe; # wird automatisch ergänzt",
+              "es_ES": "p. ej. zapatos; se añade # automáticamente",
+              "pt_BR": "ex. sapatos; # é adicionado automaticamente",
+              "fr_FR": "ex. chaussures ; # ajouté automatiquement",
+              "ru_RU": "напр. обувь; # добавляется автоматически"
+            },
+            "defaultValue": "鞋服"
+          },
+          {
+            "key": "browsers",
+            "type": "browser",
+            "label": {
+              "en_US": "Browsers",
+              "zh_CN": "浏览器",
+              "zh_TW": "瀏覽器",
+              "ja_JP": "ブラウザ",
+              "ko_KR": "브라우저",
+              "th_TH": "เบราว์เซอร์",
+              "id_ID": "Browser",
+              "ms_MY": "Pelayar",
+              "vi_VN": "Trình duyệt",
+              "de_DE": "Browser",
+              "es_ES": "Navegadores",
+              "pt_BR": "Navegadores",
+              "fr_FR": "Navigateurs",
+              "ru_RU": "Браузеры"
+            },
+            "hint": {
+              "en_US": "Used for collection and DMs; DM tasks on different browsers run in parallel",
+              "zh_CN": "同时用于采集与私信；不同浏览器的私信任务并行执行",
+              "zh_TW": "同時用於採集與私訊；不同瀏覽器的私訊任務並行執行",
+              "ja_JP": "収集とDMの両方に使用。別ブラウザのDMは並行実行",
+              "ko_KR": "수집과 DM에 모두 사용. 다른 브라우저 DM은 병렬 실행",
+              "th_TH": "ใช้ทั้งเก็บและส่ง DM งานคนละเบราว์เซอร์รันขนาน",
+              "id_ID": "Untuk pengumpulan dan DM; tugas DM di browser berbeda berjalan paralel",
+              "ms_MY": "Untuk kutipan dan DM; tugas DM pada pelayar berbeza berjalan selari",
+              "vi_VN": "Dùng thu thập và nhắn tin; tin trên trình duyệt khác chạy song song",
+              "de_DE": "Für Erfassung und DMs; DMs auf verschiedenen Browsern parallel",
+              "es_ES": "Para recolección y DMs; DMs en distintos navegadores en paralelo",
+              "pt_BR": "Para coleta e DMs; DMs em navegadores diferentes em paralelo",
+              "fr_FR": "Pour collecte et DM ; DM sur navigateurs différents en parallèle",
+              "ru_RU": "Для сбора и ЛС; ЛС на разных браузерах параллельно"
+            },
+            "single": false,
+            "platform": "instagram",
+            "defaultValue": []
+          },
+          {
+            "key": "messages_per_browser",
+            "type": "text",
+            "label": {
+              "en_US": "DMs per browser",
+              "zh_CN": "每台浏览器私信条数",
+              "zh_TW": "每台瀏覽器私訊條數",
+              "ja_JP": "ブラウザあたりのDM数",
+              "ko_KR": "브라우저당 DM 수",
+              "th_TH": "จำนวน DM ต่อเบราว์เซอร์",
+              "id_ID": "DM per browser",
+              "ms_MY": "DM setiap pelayar",
+              "vi_VN": "Số tin mỗi trình duyệt",
+              "de_DE": "DMs pro Browser",
+              "es_ES": "DMs por navegador",
+              "pt_BR": "DMs por navegador",
+              "fr_FR": "DM par navigateur",
+              "ru_RU": "ЛС на браузер"
+            },
+            "hint": {
+              "en_US": "Total to collect = browsers × this number (e.g. 3×4=12)",
+              "zh_CN": "总采集量 = 浏览器数 × 本值（如 3×4=12）",
+              "zh_TW": "總採集量 = 瀏覽器數 × 本值（如 3×4=12）",
+              "ja_JP": "総収集数 = ブラウザ数 × この値（例 3×4=12）",
+              "ko_KR": "총 수집 수 = 브라우저 수 × 이 값(예 3×4=12)",
+              "th_TH": "จำนวนที่เก็บรวม = จำนวนเบราว์เซอร์ × ค่านี้ (เช่น 3×4=12)",
+              "id_ID": "Total dikumpulkan = browser × nilai ini (mis. 3×4=12)",
+              "ms_MY": "Jumlah dikumpul = pelayar × nilai ini (cth. 3×4=12)",
+              "vi_VN": "Tổng thu thập = số trình duyệt × giá trị này (vd 3×4=12)",
+              "de_DE": "Gesamt = Browser × dieser Wert (z. B. 3×4=12)",
+              "es_ES": "Total = navegadores × este valor (p. ej. 3×4=12)",
+              "pt_BR": "Total = navegadores × este valor (ex. 3×4=12)",
+              "fr_FR": "Total = navigateurs × cette valeur (ex. 3×4=12)",
+              "ru_RU": "Всего = браузеры × это значение (напр. 3×4=12)"
+            },
+            "inputType": "number",
+            "defaultValue": 4
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Direct message",
+          "zh_CN": "私信内容",
+          "zh_TW": "私訊內容",
+          "ja_JP": "ダイレクトメッセージ",
+          "ko_KR": "다이렉트 메시지",
+          "th_TH": "ข้อความตรง",
+          "id_ID": "Pesan langsung",
+          "ms_MY": "Mesej terus",
+          "vi_VN": "Tin nhắn trực tiếp",
+          "de_DE": "Direktnachricht",
+          "es_ES": "Mensaje directo",
+          "pt_BR": "Mensagem direta",
+          "fr_FR": "Message direct",
+          "ru_RU": "Личное сообщение"
+        },
+        "fields": [
+          {
+            "key": "message",
+            "type": "text",
+            "label": {
+              "en_US": "Message texts",
+              "zh_CN": "私信文案",
+              "zh_TW": "私訊文案",
+              "ja_JP": "メッセージ本文",
+              "ko_KR": "메시지 본문",
+              "th_TH": "ข้อความ",
+              "id_ID": "Teks pesan",
+              "ms_MY": "Teks mesej",
+              "vi_VN": "Nội dung tin nhắn",
+              "de_DE": "Nachrichtentexte",
+              "es_ES": "Textos de mensaje",
+              "pt_BR": "Textos da mensagem",
+              "fr_FR": "Textes de message",
+              "ru_RU": "Тексты сообщений"
+            },
+            "hint": {
+              "en_US": "Separate variants with ==sep==; round-robin with each profile",
+              "zh_CN": "多条文案用 ==sep== 分隔，与用户按序号轮询配对",
+              "zh_TW": "多條文案用 ==sep== 分隔，與用戶依序輪詢配對",
+              "ja_JP": "==sep== で区切り、プロフィールとラウンドロビン",
+              "ko_KR": "==sep==로 구분, 프로필과 라운드로빈 매칭",
+              "th_TH": "แยกด้วย ==sep== จับคู่โปรไฟล์แบบวน",
+              "id_ID": "Pisahkan dengan ==sep==; round-robin dengan profil",
+              "ms_MY": "Pisah dengan ==sep==; round-robin dengan profil",
+              "vi_VN": "Tách bằng ==sep==; round-robin với từng hồ sơ",
+              "de_DE": "Mit ==sep== trennen; Round-Robin mit Profilen",
+              "es_ES": "Separe con ==sep==; round-robin con perfiles",
+              "pt_BR": "Separe com ==sep==; round-robin com perfis",
+              "fr_FR": "Séparez avec ==sep== ; round-robin avec les profils",
+              "ru_RU": "Разделяйте ==sep==; round-robin с профилями"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "image",
+            "type": "resource",
+            "label": {
+              "en_US": "Image (optional)",
+              "zh_CN": "图片（可选）",
+              "zh_TW": "圖片（可選）",
+              "ja_JP": "画像（任意）",
+              "ko_KR": "이미지(선택)",
+              "th_TH": "รูปภาพ (ไม่บังคับ)",
+              "id_ID": "Gambar (opsional)",
+              "ms_MY": "Imej (pilihan)",
+              "vi_VN": "Ảnh (tùy chọn)",
+              "de_DE": "Bild (optional)",
+              "es_ES": "Imagen (opcional)",
+              "pt_BR": "Imagem (opcional)",
+              "fr_FR": "Image (facultative)",
+              "ru_RU": "Изображение (необязательно)"
+            },
+            "hint": {
+              "en_US": "Optional attachment; leave empty to send text only",
+              "zh_CN": "可选附件；不选则只发文字",
+              "zh_TW": "可選附件；不選則只發文字",
+              "ja_JP": "任意の添付。空ならテキストのみ",
+              "ko_KR": "선택 첨부. 비우면 텍스트만 전송",
+              "th_TH": "ไฟล์แนบเสริม เว้นว่างเพื่อส่งเฉพาะข้อความ",
+              "id_ID": "Lampiran opsional; kosongkan untuk teks saja",
+              "ms_MY": "Lampiran pilihan; biar kosong untuk teks sahaja",
+              "vi_VN": "Tệp đính kèm tùy chọn; để trống chỉ gửi chữ",
+              "de_DE": "Optionaler Anhang; leer = nur Text",
+              "es_ES": "Adjunto opcional; vacío = solo texto",
+              "pt_BR": "Anexo opcional; vazio = só texto",
+              "fr_FR": "Pièce jointe facultative; vide = texte seul",
+              "ru_RU": "Необязательное вложение; пусто = только текст"
+            },
+            "allowMultiple": false,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": null
+          }
+        ]
+      }
+    ],
+    "workflowResultConfig": [
+      {
+        "title": {
+          "en_US": "Workflow result",
+          "zh_CN": "工作流结果",
+          "zh_TW": "工作流結果",
+          "ja_JP": "ワークフロー結果",
+          "ko_KR": "워크플로 결과",
+          "th_TH": "ผลเวิร์กโฟลว์",
+          "id_ID": "Hasil alur kerja",
+          "ms_MY": "Hasil aliran kerja",
+          "vi_VN": "Kết quả quy trình",
+          "de_DE": "Workflow-Ergebnis",
+          "es_ES": "Resultado del flujo",
+          "pt_BR": "Resultado do fluxo",
+          "fr_FR": "Résultat du workflow",
+          "ru_RU": "Результат workflow"
+        },
+        "fields": [
+          {
+            "key": "collected",
+            "type": "stat",
+            "label": {
+              "en_US": "Users used for DMs",
+              "zh_CN": "用于私信的用户数",
+              "zh_TW": "用於私訊的用戶數",
+              "ja_JP": "DMに使用したユーザー数",
+              "ko_KR": "DM에 사용한 사용자 수",
+              "th_TH": "จำนวนผู้ใช้ที่ใช้ส่ง DM",
+              "id_ID": "User dipakai untuk DM",
+              "ms_MY": "Pengguna digunakan untuk DM",
+              "vi_VN": "Số người dùng dùng để nhắn",
+              "de_DE": "Für DMs genutzte Nutzer",
+              "es_ES": "Usuarios usados para DM",
+              "pt_BR": "Usuários usados para DM",
+              "fr_FR": "Utilisateurs utilisés pour les DM",
+              "ru_RU": "Пользователи для ЛС"
+            }
+          },
+          {
+            "key": "enqueued_messages",
+            "type": "stat",
+            "label": {
+              "en_US": "DMs enqueued",
+              "zh_CN": "入队私信数",
+              "zh_TW": "入隊私訊數",
+              "ja_JP": "投入したDM数",
+              "ko_KR": "대기열에 넣은 DM 수",
+              "th_TH": "จำนวน DM ที่เข้าคิว",
+              "id_ID": "DM diantrekan",
+              "ms_MY": "DM diantrikan",
+              "vi_VN": "Số tin nhắn đã xếp hàng",
+              "de_DE": "Eingereihte DMs",
+              "es_ES": "DMs en cola",
+              "pt_BR": "DMs enfileirados",
+              "fr_FR": "DM mis en file",
+              "ru_RU": "ЛС в очереди"
+            }
+          },
+          {
+            "key": "message_success",
+            "type": "stat",
+            "label": {
+              "en_US": "DMs succeeded",
+              "zh_CN": "私信成功数",
+              "zh_TW": "私訊成功數",
+              "ja_JP": "DM成功数",
+              "ko_KR": "DM 성공 수",
+              "th_TH": "จำนวน DM สำเร็จ",
+              "id_ID": "DM berhasil",
+              "ms_MY": "DM berjaya",
+              "vi_VN": "Số tin nhắn thành công",
+              "de_DE": "Erfolgreiche DMs",
+              "es_ES": "DMs correctos",
+              "pt_BR": "DMs com sucesso",
+              "fr_FR": "DM réussis",
+              "ru_RU": "Успешные ЛС"
+            }
+          },
+          {
+            "key": "message_failed",
+            "type": "stat",
+            "label": {
+              "en_US": "DMs failed",
+              "zh_CN": "私信失败数",
+              "zh_TW": "私訊失敗數",
+              "ja_JP": "DM失敗数",
+              "ko_KR": "DM 실패 수",
+              "th_TH": "จำนวน DM ล้มเหลว",
+              "id_ID": "DM gagal",
+              "ms_MY": "DM gagal",
+              "vi_VN": "Số tin nhắn thất bại",
+              "de_DE": "Fehlgeschlagene DMs",
+              "es_ES": "DMs fallidos",
+              "pt_BR": "DMs com falha",
+              "fr_FR": "DM échoués",
+              "ru_RU": "Неудачные ЛС"
+            }
+          },
+          {
+            "key": "summary",
+            "type": "text",
+            "label": {
+              "en_US": "Summary",
+              "zh_CN": "摘要",
+              "zh_TW": "摘要",
+              "ja_JP": "要約",
+              "ko_KR": "요약",
+              "th_TH": "สรุป",
+              "id_ID": "Ringkasan",
+              "ms_MY": "Ringkasan",
+              "vi_VN": "Tóm tắt",
+              "de_DE": "Zusammenfassung",
+              "es_ES": "Resumen",
+              "pt_BR": "Resumo",
+              "fr_FR": "Résumé",
+              "ru_RU": "Сводка"
+            }
+          }
+        ]
+      }
+    ],
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    },
+    "flowChart": {
+      "title": {
+        "en_US": "Keyword collect then auto DMs",
+        "zh_CN": "关键词采集后全自动私信",
+        "zh_TW": "關鍵詞採集後全自動私訊",
+        "ja_JP": "キーワード収集後に自動DM",
+        "ko_KR": "키워드 수집 후 자동 DM",
+        "th_TH": "เก็บตามคีย์เวิร์ดแล้วส่ง DM อัตโนมัติ",
+        "id_ID": "Kumpulkan kata kunci lalu DM otomatis",
+        "ms_MY": "Kumpul kata kunci lalu DM automatik",
+        "vi_VN": "Thu thập từ khóa rồi nhắn tin tự động",
+        "de_DE": "Keyword-Erfassung, dann Auto-DMs",
+        "es_ES": "Recolección por keyword y DMs automáticos",
+        "pt_BR": "Coleta por palavra-chave e DMs automáticos",
+        "fr_FR": "Collecte par mot-clé puis DM auto",
+        "ru_RU": "Сбор по ключу и авто-ЛС"
+      },
+      "mermaid": "flowchart TD\n  start([填写关键词与浏览器]) --> plan[按台数计算采集总量]\n  plan --> collect[入队关键词用户采集]\n  collect --> wait1[等待采集完成]\n  wait1 --> split[用户按台配额切分]\n  split --> dm[并行入队私信任务]\n  dm --> wait2[等待全部私信完成]\n  wait2 --> done([汇总成功失败数])"
+    }
+  }
+}

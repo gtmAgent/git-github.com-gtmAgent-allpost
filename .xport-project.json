@@ -1,0 +1,14 @@
+{
+  "format": "xport-github-project",
+  "formatVersion": 1,
+  "kind": "workflow",
+  "exportedAt": 1793257042,
+  "workflow": {
+    "cmd": "ins-search-follower-message",
+    "name": "IG关键词用户采集+私信",
+    "allowedAutomationCmds": [
+      "ig-sreach-keywordvideo-user",
+      "ins-message"
+    ]
+  }
+}
